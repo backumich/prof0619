@@ -29,7 +29,7 @@ class Marker {
     static class Builder {
         private Marker newMarker;
 
-        public Builder() {
+        Builder() {
             switch ((int) (Math.random() * 8)) {
                 case 0:
                     newMarker = new Marker(ANSI_Colors.ANSI_BLACK);
