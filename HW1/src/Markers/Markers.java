@@ -1,4 +1,4 @@
-package Task1;
+package Markers;
 
 public interface Markers {
     String color();

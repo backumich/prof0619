@@ -1,14 +1,14 @@
-package Task1;
+package Markers;
 
-public class BlueMarker implements Markers {
+public class RedMarker implements Markers {
     @Override
     public String color() {
-        String s = "blue";
+        String s = "red";
         return s;
     }
 
     @Override
     public int maxWordQuantity() {
-        return 8;
+        return 4;
     }
 }

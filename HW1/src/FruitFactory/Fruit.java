@@ -1,4 +1,4 @@
-package Task2;
+package FruitFactory;
 
 public abstract class Fruit {
     private int sweetness;

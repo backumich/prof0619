@@ -1,4 +1,4 @@
-package Task2;
+package FruitFactory;
 
 import java.util.Random;
 

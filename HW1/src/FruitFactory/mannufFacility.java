@@ -1,4 +1,4 @@
-package Task2;
+package FruitFactory;
 
 public class mannufFacility {
     private AllFruits fruits;
