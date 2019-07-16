@@ -4,7 +4,7 @@ public final class Point {
     private final int axisX;
     private final int axisY;
 
-    public Point(int axisX, int axisY ) {
+    public Point(int axisX, int axisY) {
         this.axisX = axisX;
         this.axisY = axisY;
     }
@@ -15,5 +15,13 @@ public final class Point {
 
     public int getAxisY() {
         return axisY;
+    }
+
+    public Point withAxisX (int axisX) {
+        return new Point(axisX, this.axisY);
+    }
+
+    public Point withAxisY (int axisY) {
+        return new Point(this.axisX, axisY);
     }
 }
