@@ -7,7 +7,7 @@ import homework.markerapp.entity.Teacher;
 /**
  *  To to see how the method .write() works, use the console.
  */
-public class MarkerApp {
+public class MarkerAppMain {
     public static void main(String[] args) {
         try {
             new Teacher().write(Marker.class);
