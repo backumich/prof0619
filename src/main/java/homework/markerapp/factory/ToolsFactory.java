@@ -1,4 +1,4 @@
-package homework.markerapp.util;
+package homework.markerapp.factory;
 
 import homework.markerapp.entity.Color;
 import homework.markerapp.entity.Marker;

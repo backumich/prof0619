@@ -1,8 +1,9 @@
-package homework.drawfigureapp;
+package homework.drawfigureapp.artist;
 
+import homework.drawfigureapp.Canvas;
 import homework.drawfigureapp.figure.Figure;
 import homework.drawfigureapp.figure.FigureType;
-import homework.drawfigureapp.util.FigureFactory;
+import homework.drawfigureapp.factory.FigureFactory;
 
 import java.util.Random;
 

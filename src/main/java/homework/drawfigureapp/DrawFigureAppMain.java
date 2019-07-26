@@ -1,5 +1,7 @@
 package homework.drawfigureapp;
 
+import homework.drawfigureapp.artist.Artist;
+import homework.drawfigureapp.artist.ArtistProxy;
 import homework.drawfigureapp.exception.NoSuchFigureTypeException;
 
 public class DrawFigureAppMain {

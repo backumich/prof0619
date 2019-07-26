@@ -1,4 +1,4 @@
-package homework.drawfigureapp.util;
+package homework.drawfigureapp.factory;
 
 import homework.drawfigureapp.exception.NoSuchFigureTypeException;
 import homework.drawfigureapp.figure.*;

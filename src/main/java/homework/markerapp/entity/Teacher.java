@@ -2,7 +2,7 @@ package homework.markerapp.entity;
 
 import homework.markerapp.exception.NoInkException;
 import homework.markerapp.exception.NoSuchToolException;
-import homework.markerapp.util.ToolsFactory;
+import homework.markerapp.factory.ToolsFactory;
 
 import java.util.Scanner;
 
