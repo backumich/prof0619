@@ -7,22 +7,21 @@ import homework.markerapp.factory.ToolsFactory;
 import java.util.Scanner;
 
 public class Teacher {
-    private WritingTool tool;
     private ToolsFactory toolsFactory = ToolsFactory.getInstance();
 
     public void write(ToolType type) throws NoSuchToolException {
-        tool = toolsFactory.getTool(type);
+        WritingTool tool = toolsFactory.getTool(type);
         boolean isCancelled = false;
+
         try (Scanner sc = new Scanner(System.in)) {
             while (!isCancelled) {
                 try {
                     String text = sc.nextLine();
                     if (text.equals("/q")) {
                         isCancelled = true;
-                    } else if (text.isEmpty()) {
-                        return;
+                    } else if (!text.isEmpty()) {
+                        writeText(text, tool);
                     }
-                    writeText(text);
                 } catch (NoInkException e) {
                     tool = toolsFactory.getTool(type);
                 }
@@ -30,7 +29,7 @@ public class Teacher {
         }
     }
 
-    private void writeText(String text) throws NoInkException {
+    private void writeText(String text, WritingTool tool) throws NoInkException {
         int inkCapacity = tool.getInkCapacity();
         if (inkCapacity <= 0) {
             throw new NoInkException(tool.getClass().getSimpleName());
@@ -40,17 +39,17 @@ public class Teacher {
 
         for (int i = 0; i < text.length(); i++) {
             char currentChar = text.charAt(i);
-            
+
             if(currentChar == ' '){
-                System.out.println(currentChar);
+                System.out.print(currentChar);
             } else if(inkCapacity > 0){
-                System.out.println(currentChar);
+                System.out.print(currentChar);
                 inkCapacity--;
             } else {
-                System.out.println("</" + color + ">");
+                System.out.print("</" + color + ">");
                 throw new NoInkException(tool.getClass().getSimpleName());
             }
         }
-        System.out.println("</" + color + ">");
+        System.out.print("</" + color + ">" + "\n");
     }
 }
