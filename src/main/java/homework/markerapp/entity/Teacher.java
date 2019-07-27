@@ -13,20 +13,20 @@ public class Teacher {
         WritingTool tool = toolsFactory.getTool(type);
         boolean isCancelled = false;
 
-        try (Scanner sc = new Scanner(System.in)) {
-            while (!isCancelled) {
-                try {
-                    String text = sc.nextLine();
-                    if (text.equals("/q")) {
-                        isCancelled = true;
-                    } else if (!text.isEmpty()) {
-                        writeText(text, tool);
-                    }
-                } catch (NoInkException e) {
-                    tool = toolsFactory.getTool(type);
+        Scanner sc = new Scanner(System.in);
+        while (!isCancelled) {
+            try {
+                String text = sc.nextLine();
+                if (text.equals("/q")) {
+                    isCancelled = true;
+                } else if (!text.isEmpty()) {
+                    writeText(text, tool);
                 }
+            } catch (NoInkException e) {
+                tool = toolsFactory.getTool(type);
             }
         }
+        sc.close();
     }
 
     private void writeText(String text, WritingTool tool) throws NoInkException {
@@ -40,9 +40,9 @@ public class Teacher {
         for (int i = 0; i < text.length(); i++) {
             char currentChar = text.charAt(i);
 
-            if(currentChar == ' '){
+            if (currentChar == ' ') {
                 System.out.print(currentChar);
-            } else if(inkCapacity > 0){
+            } else if (inkCapacity > 0) {
                 System.out.print(currentChar);
                 inkCapacity--;
             } else {
