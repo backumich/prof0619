@@ -20,7 +20,7 @@ public class Teacher {
                 if (text.equals("/q")) {
                     isCancelled = true;
                 } else if (!text.isEmpty()) {
-                    writeText(text, tool);
+                    printText(text, tool);
                 }
             } catch (NoInkException e) {
                 tool = toolsFactory.getTool(type);
@@ -29,7 +29,7 @@ public class Teacher {
         sc.close();
     }
 
-    private void writeText(String text, WritingTool tool) throws NoInkException {
+    private void printText(String text, WritingTool tool) throws NoInkException {
         int inkCapacity = tool.getInkCapacity();
         if (inkCapacity <= 0) {
             throw new NoInkException(tool.getClass().getSimpleName());
