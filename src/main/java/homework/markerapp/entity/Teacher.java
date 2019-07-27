@@ -34,8 +34,8 @@ public class Teacher {
         if (inkCapacity <= 0) {
             throw new NoInkException(tool.getClass().getSimpleName());
         }
-        String color = tool.getToolsColor();
-        System.out.print("<" + color + ">");
+        String toolColor = tool.getToolsColor();
+        System.out.print("<" + toolColor + ">");
 
         for (int i = 0; i < text.length(); i++) {
             char currentChar = text.charAt(i);
@@ -46,10 +46,10 @@ public class Teacher {
                 System.out.print(currentChar);
                 inkCapacity--;
             } else {
-                System.out.print("</" + color + ">");
+                System.out.print("</" + toolColor + ">");
                 throw new NoInkException(tool.getClass().getSimpleName());
             }
         }
-        System.out.print("</" + color + ">" + "\n");
+        System.out.print("</" + toolColor + ">" + "\n");
     }
 }
