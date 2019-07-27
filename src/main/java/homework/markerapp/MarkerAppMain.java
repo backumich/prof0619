@@ -1,7 +1,7 @@
 package homework.markerapp;
 
+import homework.markerapp.entity.ToolType;
 import homework.markerapp.exception.NoSuchToolException;
-import homework.markerapp.entity.Marker;
 import homework.markerapp.entity.Teacher;
 
 /**
@@ -10,8 +10,9 @@ import homework.markerapp.entity.Teacher;
 public class MarkerAppMain {
     public static void main(String[] args) {
         try {
-            new Teacher().write(Marker.class);
+            new Teacher().write(ToolType.MARKER);
         } catch (NoSuchToolException e) {
+            System.out.println(e.getMessage());
             e.printStackTrace();
         }
     }

@@ -10,30 +10,31 @@ public class Teacher {
     private WritingTool tool;
     private ToolsFactory toolsFactory = ToolsFactory.getInstance();
 
-    public void write(Class toolsClazz) throws NoSuchToolException {
-        tool = toolsFactory.getTool(toolsClazz);
+    public void write(ToolType type) throws NoSuchToolException {
+        tool = toolsFactory.getTool(type);
+        boolean isCancelled = false;
         try (Scanner sc = new Scanner(System.in)) {
-            while (true) {
+            while (!isCancelled) {
                 try {
                     String text = sc.nextLine();
+                    if (text.equals("/q")) {
+                        isCancelled = true;
+                    } else if (text.isEmpty()) {
+                        return;
+                    }
                     writeText(text);
                 } catch (NoInkException e) {
-                    tool = toolsFactory.getTool(toolsClazz);
+                    tool = toolsFactory.getTool(type);
                 }
             }
         }
     }
 
     private void writeText(String text) throws NoInkException {
-        if(text.equals("/q")){
-            System.exit(0);
-        } else if (text.isEmpty()) {
-            return;
-        }
 
         int inkCapacity = tool.getInkCapacity();
         if (inkCapacity <= 0) {
-            throw new NoInkException();
+            throw new NoInkException(tool.getClass().getSimpleName());
         }
         String color = tool.getToolsColor();
         System.out.print("<" + color + ">");
@@ -48,7 +49,7 @@ public class Teacher {
                 }
             } else {
                 System.out.println("</" + color + ">");
-                throw new NoInkException();
+                throw new NoInkException(tool.getClass().getSimpleName());
             }
         }
         System.out.println("</" + color + ">");

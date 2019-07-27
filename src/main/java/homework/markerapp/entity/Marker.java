@@ -1,15 +1,13 @@
 package homework.markerapp.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@Setter
 @Getter
-@NoArgsConstructor
-public class Marker implements WritingTool {
-    private MarkerModel model;
-    private Color color;
+@AllArgsConstructor
+public final class Marker implements WritingTool {
+    private final MarkerModel model;
+    private final Color color;
 
     @Override
     public int getInkCapacity() {

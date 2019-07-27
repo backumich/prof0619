@@ -1,9 +1,6 @@
 package homework.markerapp.factory;
 
-import homework.markerapp.entity.Color;
-import homework.markerapp.entity.Marker;
-import homework.markerapp.entity.MarkerModel;
-import homework.markerapp.entity.WritingTool;
+import homework.markerapp.entity.*;
 import homework.markerapp.exception.NoSuchToolException;
 
 import java.util.Random;
@@ -27,16 +24,15 @@ public class ToolsFactory {
         return instance;
     }
 
-    public WritingTool getTool(Class clazz) throws NoSuchToolException {
-        if (clazz == null){
+    public WritingTool getTool(ToolType type) throws NoSuchToolException {
+        if (type == null){
             throw new IllegalArgumentException();
         }
-        if (clazz.equals(Marker.class)){
-            Marker marker = new Marker();
-            marker.setColor(colors[new Random().nextInt(colors.length)]);
-            marker.setModel(markerModels[new Random().nextInt(markerModels.length)]);
-            return marker;
+        if (type == ToolType.MARKER) {
+            Color color = colors[new Random().nextInt(colors.length)];
+            MarkerModel model = markerModels[new Random().nextInt(markerModels.length)];
+            return new Marker(model, color);
         }
-        throw new NoSuchToolException(clazz.getSimpleName());
+        throw new NoSuchToolException(type.toString());
     }
 }
