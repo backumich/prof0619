@@ -31,7 +31,6 @@ public class Teacher {
     }
 
     private void writeText(String text) throws NoInkException {
-
         int inkCapacity = tool.getInkCapacity();
         if (inkCapacity <= 0) {
             throw new NoInkException(tool.getClass().getSimpleName());
@@ -41,12 +40,12 @@ public class Teacher {
 
         for (int i = 0; i < text.length(); i++) {
             char currentChar = text.charAt(i);
-
-            if (inkCapacity > 0) {
-                System.out.print(currentChar);
-                if (currentChar != ' ') {
-                    inkCapacity--;
-                }
+            
+            if(currentChar == ' '){
+                System.out.println(currentChar);
+            } else if(inkCapacity > 0){
+                System.out.println(currentChar);
+                inkCapacity--;
             } else {
                 System.out.println("</" + color + ">");
                 throw new NoInkException(tool.getClass().getSimpleName());
