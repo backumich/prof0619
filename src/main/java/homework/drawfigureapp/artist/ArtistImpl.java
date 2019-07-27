@@ -53,11 +53,11 @@ public class ArtistImpl implements Artist {
     }
 
     private void adjustLeftCornerPosition(Figure figure, double halfHeightOfCanvas, double halfWidthOfCanvas) {
-        double topBorder = figure.getPoint().getY() + figure.getHeight();
-        adjustTopBorder(topBorder, figure, halfHeightOfCanvas);
+        double upperBorder = figure.getPoint().getY() + figure.getHeight();
+        adjustRelativeToUpperBorder(upperBorder, figure, halfHeightOfCanvas);
 
         double rightBorder = figure.getPoint().getX() + figure.getWidth();
-        adjustRightBorder(rightBorder, figure, halfWidthOfCanvas);
+        adjustRelativeToRightBorder(rightBorder, figure, halfWidthOfCanvas);
 
         if(figure.getPoint().getY() < halfHeightOfCanvas * (-1)){
             double y = halfHeightOfCanvas * (-1);
@@ -73,41 +73,41 @@ public class ArtistImpl implements Artist {
         double halfFigHeight = figure.getHeight() / 2;
         double halfFigWidth = figure.getWidth() / 2;
 
-        double topBorder = figure.getPoint().getY() + halfFigHeight;
-        adjustTopBorder(topBorder, figure, halfHeightOfCanvas);
+        double upperBorder = figure.getPoint().getY() + halfFigHeight;
+        adjustRelativeToUpperBorder(upperBorder, figure, halfHeightOfCanvas);
 
         double rightBorder = figure.getPoint().getX() + halfFigWidth;
-        adjustRightBorder(rightBorder, figure, halfWidthOfCanvas);
+        adjustRelativeToRightBorder(rightBorder, figure, halfWidthOfCanvas);
 
         double bottomBorder = figure.getPoint().getY() - halfFigHeight;
-        adjustBottomBorder(bottomBorder, figure, halfHeightOfCanvas);
+        adjustRelativeToBottomBorder(bottomBorder, figure, halfHeightOfCanvas);
 
         double leftBorder = figure.getPoint().getX() - halfFigWidth;
-        adjustLeftBorder(leftBorder, figure, halfWidthOfCanvas);
+        adjustRelativeToLeftBorder(leftBorder, figure, halfWidthOfCanvas);
     }
 
-    private void adjustTopBorder(double topBorder, Figure figure, double halfHeightOfCanvas) {
-        if (topBorder > halfHeightOfCanvas) {
-            double y = figure.getPoint().getY() - (topBorder - halfHeightOfCanvas);
+    private void adjustRelativeToUpperBorder(double upperBorder, Figure figure, double halfHeightOfCanvas) {
+        if (upperBorder > halfHeightOfCanvas) {
+            double y = figure.getPoint().getY() - (upperBorder - halfHeightOfCanvas);
             movePoint(figure, figure.getPoint().getX(), y, 'Y');
         }
     }
 
-    private void adjustRightBorder(double rightBorder, Figure figure, double halfWidthOfCanvas) {
+    private void adjustRelativeToRightBorder(double rightBorder, Figure figure, double halfWidthOfCanvas) {
         if (rightBorder > halfWidthOfCanvas) {
             double x = figure.getPoint().getX() - (rightBorder - halfWidthOfCanvas);
             movePoint(figure, x, figure.getPoint().getY(), 'X');
         }
     }
 
-    private void adjustBottomBorder(double bottomBorder, Figure figure, double halfHeightOfCanvas) {
+    private void adjustRelativeToBottomBorder(double bottomBorder, Figure figure, double halfHeightOfCanvas) {
         if(bottomBorder < halfHeightOfCanvas * (-1)){
             double y = figure.getPoint().getY() - (bottomBorder - (halfHeightOfCanvas * (-1)));
             movePoint(figure, figure.getPoint().getX(), y, 'Y');
         }
     }
 
-    private void adjustLeftBorder(double leftBorder, Figure figure, double halfWidthOfCanvas) {
+    private void adjustRelativeToLeftBorder(double leftBorder, Figure figure, double halfWidthOfCanvas) {
         if (leftBorder < halfWidthOfCanvas* (-1)) {
             double x = figure.getPoint().getX() - (leftBorder - (halfWidthOfCanvas* (-1)));
             movePoint(figure, x, figure.getPoint().getY(), 'X');
