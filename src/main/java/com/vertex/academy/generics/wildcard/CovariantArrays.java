@@ -1,10 +1,10 @@
 package com.vertex.academy.generics.wildcard;
 
 
-import com.vertex.util.Apple;
-import com.vertex.util.Fruit;
-import com.vertex.util.Jonathan;
-import com.vertex.util.Orange;
+import com.vertex.academy.data.fruits.Apple;
+import com.vertex.academy.data.fruits.Fruit;
+import com.vertex.academy.data.fruits.Jonathan;
+import com.vertex.academy.data.fruits.Orange;
 
 public class CovariantArrays {
     public static void main(String[] args) {
@@ -24,6 +24,16 @@ public class CovariantArrays {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+//
+//        List<? extends Fruit> fruitList = new ArrayList<Apple>();
+//
+//        fruitList.add(null);
+//        fruitList.add(new Object());
+//        fruitList.add(new Apple());
+//        fruitList.add(new Jonathan());
+//        fruitList.add(new Fruit());
+//        fruitList.add(new Orange());
     }
 }
 

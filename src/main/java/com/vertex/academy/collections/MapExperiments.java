@@ -16,6 +16,7 @@ public class MapExperiments {
 
                     if ("Svetlana Petrovna".equals(user.getName())) {
                         return new User(
+                                1,
                                 user.getName(),
                                 user.getBoss(),
                                 "senior executive vice president"
@@ -35,9 +36,9 @@ public class MapExperiments {
     private static HashMap<String, User> getCompanyHierarchy() {
         HashMap<String, User> myMap = new HashMap<>();
 
-        User boss = new User("Volodymyr", null, "boss");
-        User accounter = new User("Svetlana Petrovna", boss, "accounter");
-        User accounter2 = new User("Galina Vasilievna", boss, "accounter");
+        User boss = new User(1, "Volodymyr", null, "boss");
+        User accounter = new User(2, "Svetlana Petrovna", boss, "accounter");
+        User accounter2 = new User(3, "Galina Vasilievna", boss, "accounter");
 
         myMap.put("boss", boss);
         myMap.put("account", accounter);

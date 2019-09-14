@@ -1,7 +1,7 @@
 package com.vertex.academy.generics;
 
-import com.vertex.util.Apple;
-import com.vertex.util.Jonathan;
+import com.vertex.academy.data.fruits.Apple;
+import com.vertex.academy.data.fruits.Jonathan;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

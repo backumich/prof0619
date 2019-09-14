@@ -1,6 +1,7 @@
 package com.vertex.academy.generics;
 
-import com.vertex.util.Orange;
+
+import com.vertex.academy.data.fruits.Orange;
 
 import java.util.ArrayList;
 import java.util.List;

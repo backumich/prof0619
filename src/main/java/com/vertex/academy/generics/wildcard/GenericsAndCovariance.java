@@ -1,10 +1,10 @@
 package com.vertex.academy.generics.wildcard;
 
 
-import com.vertex.util.Apple;
-import com.vertex.util.Fruit;
-import com.vertex.util.Jonathan;
-import com.vertex.util.Orange;
+import com.vertex.academy.data.fruits.Apple;
+import com.vertex.academy.data.fruits.Fruit;
+import com.vertex.academy.data.fruits.Jonathan;
+import com.vertex.academy.data.fruits.Orange;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -25,6 +25,8 @@ public class GenericsAndCovariance {
         flist.add(null); // Legal but uninteresting
         // We know that it returns at least Fruit:
         Fruit fruit = flist.get(0);
+
+        System.out.println(flist);
 
         //all we can do is to define the variable with predefined lists
         flist = Arrays.asList(new Apple(), new Jonathan(), new Orange());

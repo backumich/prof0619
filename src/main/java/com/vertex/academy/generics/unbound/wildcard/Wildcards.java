@@ -7,10 +7,10 @@ public class Wildcards {
 
     // Raw argument:
     static void rawArgs(Holder holder, Object arg) {
-//         holder.set(arg); // Warning:
+        holder.set(arg); // Warning:
         //   Unchecked call to set(T) as a
         //   member of the raw type Holder
-//         holder.set(new Wildcards()); // Same warning
+        holder.set(new Wildcards()); // Same warning
 // Can’t do this; don’t have any ‘T’:
 //        Wildcards t = holder.get();
         // OK, but type information has been lost:

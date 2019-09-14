@@ -6,7 +6,7 @@ interface Payable<T> {
 /**
  * Created by sweet_home on 01.10.16.
  */
-public class ParameteryzedInterface {
+public interface ParameteryzedInterface {
 }
 
 class Employee implements Payable<Employee> {

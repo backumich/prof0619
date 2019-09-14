@@ -1,8 +1,8 @@
 package com.vertex.academy.generics;
 
-import com.vertex.util.Apple;
-import com.vertex.util.Fruit;
-import com.vertex.util.Orange;
+import com.vertex.academy.data.fruits.Apple;
+import com.vertex.academy.data.fruits.Fruit;
+import com.vertex.academy.data.fruits.Orange;
 
 import java.lang.reflect.Array;
 import java.util.*;
@@ -27,13 +27,13 @@ public class TipsAndTrics {
 
 //        cast();
 
-        Orange orange = instanceOfExample(new Orange());
-        Object o = instanceOfExample(new Object());
-        Object b = instanceOfExample(Customer.getInstance());
-
-        System.out.println(orange);
-        System.out.println(o);
-        System.out.println(b);
+//        Orange orange = instanceOfExample(new Orange());
+//        Object o = instanceOfExample(new Object());
+//        Object b = instanceOfExample(Customer.getInstance());
+//
+//        System.out.println(orange);
+//        System.out.println(o);
+//        System.out.println(b);
 
     }
 
@@ -50,7 +50,7 @@ public class TipsAndTrics {
 //         Runtime type is the raw (erased) type:
         gia[0] = new Car();
         System.out.println(gia.getClass().getSimpleName());
-        //! gia[1] = new Object(); // Compile-time error
+//        gia[1] = new Object(); // Compile-time error
         // Discovers type mismatch at compile time:
         Car<Double> doubleCar = new Car<>();
         doubleCar.setT(3.14);
@@ -75,6 +75,7 @@ public class TipsAndTrics {
         // !!!!! Classes are generics too, but they are "downcasted" because of migration (erasure).
         // The cost of this ability is - casts, instanceof, new on generics are forbidden
 
+        System.out.println(strClass);
         System.out.println(strClass == intClass);
         System.out.println(strClass.isInstance(integerArrayList));
 

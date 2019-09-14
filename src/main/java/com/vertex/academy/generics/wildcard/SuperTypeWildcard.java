@@ -1,9 +1,9 @@
 package com.vertex.academy.generics.wildcard;
 
 
-import com.vertex.util.Apple;
-import com.vertex.util.Fruit;
-import com.vertex.util.Jonathan;
+import com.vertex.academy.data.fruits.Apple;
+import com.vertex.academy.data.fruits.Fruit;
+import com.vertex.academy.data.fruits.Jonathan;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +51,7 @@ class GenericWriting {
 
     static void f1() {
         writeExact(apples, new Apple());
-        writeExact(fruit, new Jonathan()); // Error:
+//        writeExact(apples, new Fruit()); // Error:
         // Incompatible types: found Fruit, required Apple
     }
 
